@@ -1,6 +1,7 @@
 package com.czy.Controller;
 
 import com.czy.Bean.User;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -18,6 +19,7 @@ public class UserController {
      *  处理"/users/"的GET请求，用来获取用户列表
      * @return
      */
+
     @GetMapping("/")
     public List<User> getUserList(){
 
@@ -26,11 +28,12 @@ public class UserController {
     }
 
     @PostMapping("/")
-    public String postUser(@RequestBody User user){
+    public String postUser(@Validated @RequestBody User user){
         //@RequestBody 获取请求中的json数据并解析赋值给user,json中的key要跟user的属性一样才能赋值
         users.put(user.getId(),user);
         return "success";
     }
+
     @GetMapping("/{id}")
     public User getUser(@PathVariable Long id){
         return  users.get(id);

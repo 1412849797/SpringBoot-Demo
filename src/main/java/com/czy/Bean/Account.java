@@ -1,8 +1,7 @@
 package com.czy.Bean;
 
 import lombok.Data;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
+
 
 /**
  * @Author 蔡梓阳
